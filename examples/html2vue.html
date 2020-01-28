@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+  <style>
+    #container {
+      height: 100vh;
+      background: #000 url(https://pds.joins.com/news/component/htmlphoto_mmdata/201902/14/722fe145-3afc-4deb-9034-f1a9f562bf93.jpg) center/cover no-repeat;
+    }
+    .cart {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 300px;
+      height: 500px;
+      background: url(https://cphoto.asiae.co.kr/listimglink/6/2019051017033318782_1557475413.jpg) center/100% no-repeat
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="order">
+      <ul class="order-list">
+        <!-- 매장 상품 목록 시작 -->
+        <li class="order-item">
+          <label class="order-item__label">
+            <span class="order-item__text">바나나킥</span>
+            <input type="number" value="0" />
+          </label>
+          <button class="order-item__add">담기</button>
+        </li>
+        <!-- 매장 상품 목록 끝-->
+        <li class="order-item">
+          <label class="order-item__label">
+            <span class="order-item__text">왕꿈틀이</span>
+            <input type="number" value="0" />
+          </label>
+          <button class="order-item__add">담기</button>
+        </li>
+        <li class="order-item">
+          <label class="order-item__label">
+            <span class="order-item__text">방울토마토</span>
+            <input type="number" value="0" />
+          </label>
+          <button class="order-item__add">담기</button>
+        </li>
+        <li class="order-item">
+          <label class="order-item__label">
+            <span class="order-item__text">코카콜라 제로</span>
+            <input type="number" value="0" />
+          </label>
+          <button class="order-item__add">담기</button>
+        </li>
+      </ul>
+    </div>
+    <div class="cart">
+      <ul class="cart-list">
+        <!-- 카트 상품 정보 리스트 시작 -->
+        <li class="cart-item">
+          <span>방울토마토 0개</span>
+        </li>
+        <!-- 카트 상품 정보 리스트 끝 -->
+        <!-- 카트 상품 없을 시 시작 -->
+        <li class="cart__item--empty">담긴 상품이 없습니다.</li>
+        <!-- 카트 상품 없을 시 끝 -->
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
