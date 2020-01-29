@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Transition Vue</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" type="text/css" href="./primitive.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+</head>
+<body>
+    <div id="container">
+        <!-- 즐겨찾는 상품 영역 시작 -->
+        <section class="order-favorite">
+            <ul class="order-list">
+                <!-- 상단 상품 목록 시작 -->
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/150/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">김치짜글이</p>
+                        <p class="order-item__price">5,000원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/150/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">콜팝치킨</p>
+                        <p class="order-item__price">2,500원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/150/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">까불게티+콜라</p>
+                        <p class="order-item__price">6,500원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/150/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[햄버거] 피자리오 (한맥)</p>
+                        <p class="order-item__price">2,000원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/150/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">양념감자 어니언맛</p>
+                        <p class="order-item__price">2,000원</p>
+                    </label>
+                </li>
+                <!-- 상단 상품 목록 끝-->
+            </ul>
+        </section>
+        <!-- //즐겨찾는 상품 영역 끝 -->
+
+        <!-- 상품 분류 탭 영역 시작 -->
+        <section class="order-tab">
+            <ul class="order-tab__list">
+                <li class="order-tab__item">
+                    <button class="order-tab__text">전체</button>
+                </li>
+                <li class="order-tab__item">
+                    <button class="order-tab__text">음료류</button>
+                </li>
+                <li class="order-tab__item active">
+                    <button class="order-tab__text">간식류</button>
+                </li>
+                <li class="order-tab__item">
+                    <button class="order-tab__text">식사류</button>
+                </li>
+                <li class="order-tab__item">
+                    <button class="order-tab__text">라면류</button>
+                </li>
+                <li class="order-tab__item">
+                    <button class="order-tab__text">수입과자</button>
+                </li>
+                <li class="order-tab__item">
+                    <button class="order-tab__text">기타</button>
+                </li>
+            </ul>
+        </section>
+        <!-- //상품 분류 탭 영역 끝 -->
+
+        <!-- 일반 상품 목록 시작 -->
+        <section class="order-normal">
+            <ul class="order-list">
+                <!-- 상단 상품 목록 시작 -->
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/75/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[간식] 피자리아 존맛탱</p>
+                        <p class="order-item__price">2,000원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/75/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[간식] 깔라만시 곤약젤리</p>
+                        <p class="order-item__price">2,000원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/75/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[식사] 눈꽃크림 떡볶이</p>
+                        <p class="order-item__price">3,000원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/75/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[간식] 닭꼬치</p>
+                        <p class="order-item__price">2,000원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/75/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[간식] 마늘후랑크</p>
+                        <p class="order-item__price">2,000원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/75/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[식사] 매콤달콤 떡볶이</p>
+                        <p class="order-item__price">2,000원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/75/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[간식] 복숭아 곤약젤리</p>
+                        <p class="order-item__price">1,500원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/75/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[간식] 불벅</p>
+                        <p class="order-item__price">1,500원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/75/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[간식] 치킨너겟 5조각</p>
+                        <p class="order-item__price">1,500원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/75/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[라면] 너구리</p>
+                        <p class="order-item__price">2,000원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/75/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[라면] 짜치계</p>
+                        <p class="order-item__price">3,000원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/75/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[음료] 마운틴듀</p>
+                        <p class="order-item__price">1,500원</p>
+                    </label>
+                </li>
+                <li class="order-item">
+                    <div class="order-item__image"><img src="https://via.placeholder.com/75/image"></div>
+                    <label class="order-item__label">
+                        <p class="order-item__name">[음료] 닥터페퍼</p>
+                        <p class="order-item__price">1,500원</p>
+                    </label>
+                </li>
+                <!-- 상단 상품 목록 끝-->
+            </ul>
+        </section>
+        <!-- //일반 상품 목록 끝 -->
+
+        <!-- 장바구니 영역 시작 -->
+        <section class="cart">
+            <div class="cart-title">
+                <h1>주문목록</h1>
+            </div>
+            <ul class="cart-list">
+                <!-- 카트 상품 정보 리스트 시작 -->
+                <li class="cart-item">
+                    <span>방울토마토 0개</span>
+                </li>
+                <!-- 카트 상품 정보 리스트 끝 -->
+                <!-- 카트 상품 없을 시 시작 -->
+                <li class="cart__item--empty">상품을 선택해 주세요.</li>
+                <!-- 카트 상품 없을 시 끝 -->
+            </ul>
+            <div class="cart-total">
+                <span class="cart-total__label">전체주문금액</span>
+                <span class="cart-total__value">0원</span>
+            </div>
+            <div class="cart-actions">
+                <button class="cart-actions__button">상품주문</button>
+            </div>
+        </section>
+        <!-- //장바구니 영역 끝 -->
+    </div>
+</body>
+</html>
