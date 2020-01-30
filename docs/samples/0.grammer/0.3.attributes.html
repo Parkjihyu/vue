@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Vue Attributes</title>
+</head>
+<body>
+<div id="app" v-cloak>
+    <section>
+        <h1>html과 text</h1>
+        <p>HTML 사용 :: <span v-html="title"></span></p>
+        <p>TEXT 사용 :: <span v-text="title"></span></p>
+    </section>
+    <section>
+        <h1>v-show</h1>
+        <p v-show="true">
+            이 페이지는 보입니다.
+        </p>
+        <p v-show="false">
+            이 페이지는 안 보입니다.
+        </p>
+    </section>
+    <section>
+        <h1>v-if</h1>
+        <p v-if="true">
+            if절
+        </p>
+        <p v-else-if="true">
+            else-if절
+        </p>
+        <p v-else>
+            else절
+        </p>
+    </section>
+    <section>
+        <h1>v-model</h1>
+        <span>model: </span><input v-model="model"><br>
+        <span>model.number: </span><input v-model.number="modelNumber"><br>
+        <span>model.lazy: </span><input v-model.lazy="modelLazy" @change="inputChange($event)"><br>
+        <span>model.trim: </span><input v-model.trim="modelTrim">
+    </section>
+    <section>
+        <h1>single radio/checkbox</h1>
+        <label>
+            <input type="checkbox" v-model="checked">
+            <span>{{ checked }}</span>
+        </label>
+    </section>
+    <section>
+        <h1>multiple checkbox</h1>
+        <label>
+            <input type="checkbox" v-model="checkedArr" value="AAA">
+            AAA
+        </label>
+        <label>
+            <input type="checkbox" v-model="checkedArr" value="BBB">
+            BBB
+        </label>
+        <label>
+            <input type="checkbox" v-model="checkedArr" value="CCC">
+            CCC
+        </label>
+        <p>{{ checkedArr }}</p>
+    </section>
+    <section>
+        <h1>radio</h1>
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <br>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>선택: {{ picked }}</span>
+    </section>
+</div>
+
+<!-- 여기서부터 SCRIPT 영역 -->
+<script>
+new Vue({
+    el: "#app",
+    data: {
+        title: '<span style="color:skyblue">제목입니다.</span>',
+        model: '',
+        modelNumber: 0,
+        modelLazy: '',
+        modelTrim: '',
+        checked: false,
+        checkedArr: [],
+        picked: ''
+    },
+    methods: {
+        inputChange: function(event) {
+            console.log('dom value ::', event.target.value)
+            console.log('vue value ::', this.modelLazy)
+        }
+    }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>v-if</title>
+</head>
+<body>
+<div id="app">
+    <h2>상품 목록</h2>
+    <div>
+        <label for="">
+            <input type="text" placeholder="상품명">
+            <input type="number" placeholder="가격">
+            <button>추가하기</button>
+        </label>
+    </div>
+    <ul class="order-list">
+        <li v-for="product in products"
+            class="order-item">
+            <label class="order-item__label">
+                <p class="order-item__name">{{ product.name }}</p>
+                <p class="order-item__price">{{ product.price }}원</p>
+            </label>
+        </li>
+    </ul>
+</div>
+
+<!-- 여기서부터 SCRIPT 영역 -->
+<script>
+new Vue({
+    el: "#app",
+    data: {
+        newProductName: '',
+        newProductPrice: 0,
+        products: [
+            { name: "[햄버거] 피자리오 (한맥)", price: 2000 },
+            { name: "양념감자 어니언맛", price: 2000 }
+        ]
+    },
+    methods: {
+        addProduct: function(){
+            this.products.push({
+                name: this.newProductName,
+                price: this.newProductPrice
+            })
+            alert('추가되었습니다.')
+            this.newProductName = ''
+            this.newProductPrice = 0
+        }
+    }
+})
+</script>
+</body>
+</html>
