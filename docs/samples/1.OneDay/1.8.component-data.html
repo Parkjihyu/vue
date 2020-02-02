@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Component Data</title>
+</head>
+<body>
+<div id="app">
+    <counter></counter>
+    <counter></counter>
+    <counter></counter>
+</div>
+
+<!-- 여기서부터 SCRIPT 영역 -->
+<script>
+// 전역 컴포넌트
+// Vue.component('counter', {
+//     template: `<button @click="count += 1">{{ count }}</button>`,
+//     data: {
+//         count: 0
+//     }
+// })
+// 지역 컴포넌트(?)
+var counter = {
+    template: `<button @click="count += 1">{{ count }}</button>`,
+    // data: function(){
+    //     return {
+    //         count: 0
+    //     }
+    // },
+    data: {
+        count: 0
+    }
+}
+new Vue({
+    el: "#app",
+    components: {
+        'counter': counter
+    },
+})
+</script>
+</body>
+</html>
