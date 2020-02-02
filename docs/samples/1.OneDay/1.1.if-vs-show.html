@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>v-if vs v-show</title>
+</head>
+<body>
+<div id="app">
+    <button @click="toggleShowPage">showPage is {{ showPage }}</button>
+    <p v-if="showPage">v-if를 이용하여 표시한 태그</p>
+    <p v-show="showPage">v-show를 이용하여 표시한 태그</p>
+</div>
+
+<!-- 여기서부터 SCRIPT 영역 -->
+<script>
+new Vue({
+    el: "#app",
+    data: {
+        showPage: false
+    },
+    methods: {
+        toggleShowPage: function(){
+            this.showPage = !this.showPage
+        }
+    }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>v-model</title>
+</head>
+<body>
+<div id="app">
+    <section>
+        <h1>v-model</h1>
+        <span>model: </span><input v-model="model"><br>
+        <span>model.number: </span><input v-model.number="modelNumber"><br>
+        <span>model.lazy: </span><input v-model.lazy="modelLazy" @change="inputChange($event)"><br>
+        <span>model.trim: </span><input v-model.trim="modelTrim">
+    </section>
+</div>
+
+<!-- 여기서부터 SCRIPT 영역 -->
+<script>
+new Vue({
+    el: "#app",
+    data: {
+        model: '',
+        modelNumber: 0,
+        modelLazy: '',
+        modelTrim: '',
+    },
+    watch: {
+        model: function(){
+            console.log(typeof this.model, this.model)
+        },
+        modelNumber: function(){
+            console.log(typeof this.modelNumber, this.modelNumber)
+        },
+        modelTrim: function(){
+            console.log(typeof this.modelTrim, this.modelTrim)
+        }
+    },
+    methods: {
+        inputChange: function(event) {
+            console.log('dom value ::', event.target.value)
+            console.log('vue value ::', this.modelLazy)
+        }
+    }
+})
+</script>
+</body>
+</html>

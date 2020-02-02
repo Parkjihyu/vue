@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-html vs v-text</title>
+</head>
+<body>
+<div id="app">
+    <section>
+        <p v-html=""></p>
+    </section>
+    <section>
+        <p v-text=""></p>
+    </section>
+</div>
+
+<!-- 여기서부터 SCRIPT 영역 -->
+<script>
+new Vue({
+    el: "#app",
+    data: {
+        products: [
+            { name: "김치짜글이", price: 5000 },
+            { name: "콜팝치킨", price: 2500 },
+            { name: "까불게티+콜라", price: 6500 },
+            { name: "[햄버거] 피자리오 (한맥)", price: 2000 },
+            { name: "양념감자 어니언맛", price: 2000 }
+        ]
+    },
+    methods: {
+        notify: function(product){
+            if( product ) {
+                if( 'name' in product && 'price' in product ) {
+                    alert('선택하신 상품은 ' + product.name + '입니다.\n가격은 '+product.price+'원 입니다.')
+                } else {
+                    throw new Error('Wrong parameter.')
+                }
+            } else {
+                throw new Error('Empty parameter.')
+            }
+        }
+    }
+})
+</script>
+</body>
+</html>

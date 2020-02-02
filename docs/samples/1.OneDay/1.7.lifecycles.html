@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>v-if vs v-show</title>
+</head>
+<body>
+<div id="app">
+    <button @click="show = !show">버튼</button>
+    <h1>라이프사이클 훅</h1>
+    <child v-if="show" />
+</div>
+
+<!-- 여기서부터 SCRIPT 영역 -->
+<script>
+Vue.component('child', {
+    template: '<p> 나는 child 컴포넌트입니다 </p>',
+    beforeDestroy: function(){
+        console.log('- === beforeDestroy ===')
+        console.log(this.$el)
+        console.log('- ===|')
+    },
+    destroyed: function(){
+        console.log('- === destroyed ===')
+        console.log(this.$el)
+        console.log('- ===|')
+    },
+})
+new Vue({
+    el: "#app",
+    data: function(){
+        return {
+            show: true
+        }
+    },
+    beforeCreate: function(){
+        console.log('=== beforeCreate ===')
+        console.log(this.$el)
+        console.log('===|')
+    },
+    created: function(){
+        console.log('=== created ===')
+        console.log('this.show :', this.show)
+        console.log(this.$el)
+        console.log('===|')
+    },
+    beforeMount: function(){
+        console.log('=== beforeMount ===')
+        console.log('this.show :', this.show)
+        console.log(this.$el)
+        console.log('===|')
+    },
+    mounted: function(){
+        console.log('=== mounted ===')
+        console.log(this.$el)
+        console.log('===|')
+    },
+    beforeUpdate: function(){
+        console.log('=== beforeUpdate ===')
+        console.log(this.$el)
+        console.log('===|')
+    },
+    updated: function(){
+        console.log('=== updated ===')
+        console.log(this.$el)
+        console.log('===|')
+    },
+    beforeDestroy: function(){
+        console.log('=== beforeDestroy ===')
+        console.log(this.$el)
+        console.log('===|')
+    },
+    destroyed: function(){
+        console.log('=== destroyed ===')
+        console.log(this.$el)
+        console.log('===|')
+    },
+
+})
+</script>
+</body>
+</html>

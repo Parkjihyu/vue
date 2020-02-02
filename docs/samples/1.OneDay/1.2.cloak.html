@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-cloak</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!-- <div id="app" v-cloak> -->
+<div id="app">
+    <h1 v-html="title"><span style="color:#ffe001">반짝이 대머리!</span></h1>
+</div>
+
+<!-- 여기서부터 SCRIPT 영역 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+new Vue({
+    el: "#app",
+    data: {
+        title: "<span style='color:skyblue'>자라나라 머리머리!!</span>"
+    },
+})
+</script>
+</body>
+</html>

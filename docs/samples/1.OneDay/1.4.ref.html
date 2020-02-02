@@ -4,22 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <title>v-if</title>
+    <title>refs</title>
 </head>
 <body>
 <div id="app">
-    <h2>상품 목록</h2>
-    <div>
-        <label for="">
-            <input type="text" placeholder="상품명">
-            <input type="number" placeholder="가격">
-            <button>추가하기</button>
-        </label>
-    </div>
+    <h2 class="page-title" ref="pageTitle">상품 목록</h2>
+    <p ref="refNotInFor">상품 설명1</p>
+    <p ref="refNotInFor">상품 설명2</p>
     <ul class="order-list">
-        <li v-for="product in products"
+        <li
+            v-for="(product, index) in products"
             class="order-item">
-            <label class="order-item__label">
+            <label
+                class="order-item__label"
+                ref="refInFor">
                 <p class="order-item__name">{{ product.name }}</p>
                 <p class="order-item__price">{{ product.price }}원</p>
             </label>
@@ -39,16 +37,12 @@ new Vue({
             { name: "양념감자 어니언맛", price: 2000 }
         ]
     },
-    methods: {
-        addProduct: function(){
-            this.products.push({
-                name: this.newProductName,
-                price: this.newProductPrice
-            })
-            alert('추가되었습니다.')
-            this.newProductName = ''
-            this.newProductPrice = 0
-        }
+    mounted: function() {
+        console.log(this.$refs.pageTitle)
+        console.log("this.$refs.pageTitle === document.querySelector('.page-title')", this.$refs.pageTitle === document.querySelector('.page-title'))
+
+        // console.log("this.$refs.refInFor \n", this.$refs.refInFor)
+        // console.log("this.$refs.refNotInFor \n", this.$refs.refNotInFor)
     }
 })
 </script>

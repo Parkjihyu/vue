@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>extend vs mixins</title>
+</head>
+<body>
+<div id="app">
+    <button @click="toggleShowTitle">toggleShowPage</button>
+    <h1
+        v-if="showTitle"
+        v-text="title">타이틀</h1
+        >
+    <p v-text="explain"></p>
+</div>
+
+<!-- 여기서부터 SCRIPT 영역 -->
+<script>
+var mixins1 = {
+    data: function(){
+        return {
+            title: '믹스인 타이틀',
+            explain: '믹스인에서 하는 설명1',
+        }
+    },
+    mounted: function(){
+        console.log('mixins1에서 표시하는 로그.')
+    }
+}
+var mixins2 = {
+    data: function(){
+        return {
+            explain: '믹스인에서 하는 설명2',
+        }
+    },
+    mounted: function(){
+        console.log('mixins2에서 표시하는 로그.')
+    }
+}
+var extend = {
+    methods: {
+        toggleShowTitle: function(){
+            this.showTitle = !this.showTitle
+        }
+    },
+    mounted: function(){
+        console.log('extend에서 표시하는 로그.')
+    }
+}
+var appVue = new Vue({
+    el: "#app",
+    mixins: [mixins1, mixins2],
+    extends: extend,
+    data: function() {
+        return {
+            title: '기본 타이틀',
+            showTitle: true,
+        }
+    },
+    methods: {
+    },
+    mounted: function(){
+        console.log('기본으로 표시하는 로그.')
+    }
+})
+</script>
+</body>
+</html>
