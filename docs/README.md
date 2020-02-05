@@ -13,10 +13,12 @@
 - Vue 문법 소개
     - 컴포넌트/인스턴스 속성
     - [라이프사이클 훅](https://kr.vuejs.org/v2/guide/instance.html#%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4-%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8)
-- [실습](https://croot-git.github.io/vue/samples/1.transitionVue/primitive.html)
+- [실습](https://croot-git.github.io/vue/samples/1.OneDay-practice/before.html)
     - 도메인 분석
     - vue 인스턴스 만들기
     - 변환하기
+    - 
+> [예제링크](https://croot-git.github.io/vue/samples/1.OneDay/)  
 
 ### 1주차.
 - 실습 리뷰
@@ -28,7 +30,7 @@
 - [Nuxt 소개](https://ko.nuxtjs.org/)
     - nuxt 폴더 구조
     - nuxt 설정 방법
-    
+
 ### 2주차.
 - CD, CBD 개발
     - 컴포넌트 개념 및 작성법

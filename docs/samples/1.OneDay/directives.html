@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>directives</title>
+    <style>
+    :focus {
+        outline: 4px solid #ed5500;
+        width: 400px;
+        height: 40px;
+        margin-bottom: 40px;
+    }
+    </style>
+</head>
+<body>
+<div id="app">
+    <section>
+        <p v-for="idx in 40">line {{ idx }}: </p>
+        <input v-focus />
+    </section>
+</div>
+
+<!-- 여기서부터 SCRIPT 영역 -->
+<script>
+Vue.directive('focus', {
+    inserted: function (el) {
+        el.focus()
+    }
+})
+
+new Vue({
+    el: "#app",
+    data: {
+        frontNumber: '900512',
+        backNumber: '1'
+    },
+    mounted() {
+    }
+})
+</script>
+</body>
+</html>

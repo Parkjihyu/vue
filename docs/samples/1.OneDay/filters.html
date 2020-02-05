@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>filters</title>
+</head>
+<body>
+<div id="app">
+    <section>
+        <fieldset>
+            <legend>주민번호 입력</legend>
+            <input v-model="frontNumber" placeholder="주민번호 앞자리">
+            <span>-</span>
+            <input v-model="backNumber" style="width:1em" maxlength="1">
+            <span style="vertical-align:sub;letter-spacing:2px;">******</span>
+        </fieldset>
+        <p>
+        당신은 {{ frontNumber | birth }}에 태어나셨습니다.<br>
+        당신의 나이는 {{ frontNumber | age }}이며<br>
+        한국식 나이는 {{ frontNumber | age(true) }}이군요.<br>
+        {{ backNumber | gender }}이기에 {{ backNumber | gender | favorite }}을/를 추천합니다!
+        </p>
+    </section>
+</div>
+
+<!-- 여기서부터 SCRIPT 영역 -->
+<script>
+new Vue({
+    el: "#app",
+    data: {
+        frontNumber: '900512',
+        backNumber: '1'
+    },
+    filters: {
+        birth: function(value){
+            if(value) {
+                return `19${value.slice(0,2)}년 ${value.slice(2,4)}월 ${value.slice(4)}일`
+            }
+        },
+        age: function(value, kor) {
+            if(value) {
+                if(kor) {
+                    return new Date().getFullYear() - 1900 - value.slice(0,2) + 1
+                } else {
+                    return new Date().getFullYear() - 1900 - value.slice(0,2)
+                }
+            }
+        },
+        gender: function(value){
+            if(value) {
+                if(value % 2 == 1) {
+                    return '남자'
+                } else if(value % 2 == 0) {
+                    return '여자'
+                } else {
+                    return '외계인'
+                }
+            }
+        },
+        favorite: function(value){
+            if(value == '남자') {
+                return 'PS4 게임기'
+            } if(value == '여자') {
+                return '에르메스 가방'
+            } else if(value == '외계인') {
+                return '지구탈출'
+            }
+        }
+    }
+})
+</script>
+</body>
+</html>
